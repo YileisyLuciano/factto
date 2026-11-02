@@ -1,75 +1,46 @@
-# React + TypeScript + Vite
+# Factto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fast invoice generator for small businesses. Create professional,
+branded invoices from your catalog in seconds.
 
-Currently, two official plugins are available:
+> 🚧 Work in progress. This project is being built step by step as a
+> learning project and portfolio piece.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+I built Factto because I started selling products as a hobby and created a
+catalog where customers can browse my items. Orders arrive as WhatsApp
+screenshots of the products they want, and I had to rebuild every invoice
+by hand in a design tool.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Factto lets you pick items from your catalog and get a ready-to-send
+invoice in seconds. It is designed for any small business that sells
+products or services and receives orders through WhatsApp, whether as
+typed text or as an image. It is being built for two real users from day one.
 
-## Expanding the ESLint configuration
+## Features (planned)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Invoice generator with a printable template
+- Catalog of products and services (name, price, optional photo)
+- Invoice history
+- Multi-user access with authentication
+- AI agent that reads order screenshots or pasted text from chat apps
+  and turns them into draft invoices, matched against the catalog
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- React + TypeScript (Vite)
+- Firebase: Authentication, Firestore, Hosting
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting started
 
-```
+Setup instructions will be added soon.
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Roadmap
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+- [x] Project scaffold
+- [ ] Invoice items list
+- [ ] Invoice template
+- [ ] Firebase integration
+- [ ] Deploy
+- [ ] AI agent integration
