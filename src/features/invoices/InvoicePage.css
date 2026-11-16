@@ -1,0 +1,16 @@
+.invoice-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 720px;
+}
+
+.invoice-editor label {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.invoice-editor input {
+  display: block;
+  margin-top: 4px;
+}

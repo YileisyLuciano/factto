@@ -15,8 +15,8 @@ by hand in a design tool.
 
 Factto lets you pick items from your catalog and get a ready-to-send
 invoice in seconds. It is designed for any small business that sells
-products or services and receives orders through WhatsApp, whether as
-typed text or as an image. It is being built for two real users from day one.
+products or services and receives orders through WhatsApp or any other
+social media or messaging app, whether as typed text or as an image. It is being built for two real users from day one.
 
 ## Features (planned)
 
