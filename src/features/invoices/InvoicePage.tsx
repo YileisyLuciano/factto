@@ -1,17 +1,11 @@
 import { useState } from "react";
-import type { Invoice } from "./types";
-import { todayISO } from "../../lib/format";
 import { InvoiceItems } from "./components/InvoiceItems";
 import { InvoicePreview } from "./components/InvoicePreview";
+import { useInvoiceDraft } from "./useInvoiceDraft";
 import "./InvoicePage.css";
 
 export function InvoicePage() {
-  const [invoice, setInvoice] = useState<Invoice>({
-    number: 1,
-    customerName: "",
-    date: todayISO(),
-    items: [],
-  });
+  const { invoice, setInvoice } = useInvoiceDraft();
   const [showPreview, setShowPreview] = useState(false);
 
   return (

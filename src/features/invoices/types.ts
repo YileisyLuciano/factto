@@ -1,5 +1,6 @@
 export interface Item {
   id: string;
+  catalogId?: string;
   name: string;
   price: number;
   qty?: number;
