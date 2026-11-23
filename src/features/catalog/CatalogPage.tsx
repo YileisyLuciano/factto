@@ -1,10 +1,11 @@
-import { useState, type FormEvent } from "react";
-import { formatMoney } from "../../lib/format";
+import { useState, type SubmitEvent } from "react";
+import { useFormatMoney } from "../settings/useFormatMoney";
 import { useCatalog } from "./useCatalog";
 import type { CatalogEntry } from "./types";
 
 export function CatalogPage() {
   const { entries, addEntry, updateEntry, removeEntry } = useCatalog();
+  const formatMoney = useFormatMoney();
   const [editingId, setEditingId] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -21,7 +22,7 @@ export function CatalogPage() {
     setPrice(String(entry.price));
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     const parsedPrice = Number(price);
     if (!name.trim() || Number.isNaN(parsedPrice) || parsedPrice <= 0) return;

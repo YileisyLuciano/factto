@@ -1,5 +1,5 @@
 import type { Item } from "../types";
-import { formatMoney } from "../../../lib/format";
+import { useFormatMoney } from "../../settings/useFormatMoney";
 
 interface ItemRowProps {
   item: Item;
@@ -8,8 +8,9 @@ interface ItemRowProps {
 }
 
 export function ItemRow({ item, onQtyChange, onRemove }: ItemRowProps) {
+  const formatMoney = useFormatMoney();
   const qty = item.qty ?? 1;
-
+  
   return (
     <li>
       {item.name} — {formatMoney(item.price)} ×{" "}

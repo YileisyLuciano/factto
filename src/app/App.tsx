@@ -6,23 +6,26 @@ import { CatalogPage } from "../features/catalog/CatalogPage";
 import { CatalogProvider } from "../features/catalog/CatalogProvider";
 import { InvoiceDraftProvider } from "../features/invoices/InvoiceDraftProvider";
 import { SettingsPage } from "../features/settings/SettingsPage";
+import { SettingsProvider } from "../features/settings/SettingsProvider";
 
 export default function App() {
   return (
-    <CatalogProvider>
-      <InvoiceDraftProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<AppLayout />}>
-              <Route index element={<Navigate to="/invoice" replace />} />
-              <Route path="/invoice" element={<InvoicePage />} />
-              <Route path="/history" element={<HistoryPage />} />
-              <Route path="/catalog" element={<CatalogPage />} />
-              <Route path="/settings" element={<SettingsPage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </InvoiceDraftProvider>
-    </CatalogProvider>
+    <SettingsProvider>
+      <CatalogProvider>
+        <InvoiceDraftProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route element={<AppLayout />}>
+                <Route index element={<Navigate to="/invoice" replace />} />
+                <Route path="/invoice" element={<InvoicePage />} />
+                <Route path="/history" element={<HistoryPage />} />
+                <Route path="/catalog" element={<CatalogPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </InvoiceDraftProvider>
+      </CatalogProvider>
+    </SettingsProvider>
   );
 }

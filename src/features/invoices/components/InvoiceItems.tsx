@@ -1,8 +1,9 @@
-import { useState, type FormEvent } from "react";
+// src/features/invoices/components/InvoiceItems.tsx
+import { useState, type SubmitEvent } from "react";
 import type { Item } from "../types";
 import { itemsTotal } from "../utils";
-import { formatMoney } from "../../../lib/format";
 import { useCatalog } from "../../catalog/useCatalog";
+import { useFormatMoney } from "../../settings/useFormatMoney";
 import { ItemRow } from "./ItemRow";
 
 interface InvoiceItemsProps {
@@ -12,6 +13,7 @@ interface InvoiceItemsProps {
 
 export function InvoiceItems({ items, onChange }: InvoiceItemsProps) {
   const { entries } = useCatalog();
+  const formatMoney = useFormatMoney();
 
   // from catalog
   const [selectedId, setSelectedId] = useState("");
@@ -49,7 +51,7 @@ export function InvoiceItems({ items, onChange }: InvoiceItemsProps) {
     setCatalogQty("1");
   }
 
-  function handleAddFreeLine(e: FormEvent<HTMLFormElement>) {
+  function handleAddFreeLine(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     const parsedPrice = Number(price);
     if (!name.trim() || Number.isNaN(parsedPrice) || parsedPrice <= 0) return;

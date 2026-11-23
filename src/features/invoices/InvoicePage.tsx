@@ -1,11 +1,14 @@
+// src/features/invoices/InvoicePage.tsx
 import { useState } from "react";
 import { InvoiceItems } from "./components/InvoiceItems";
 import { InvoicePreview } from "./components/InvoicePreview";
 import { useInvoiceDraft } from "./useInvoiceDraft";
+import { useSettings } from "../settings/useSettings";
 import "./InvoicePage.css";
 
 export function InvoicePage() {
   const { invoice, setInvoice } = useInvoiceDraft();
+  const { settings } = useSettings();
   const [showPreview, setShowPreview] = useState(false);
 
   return (
@@ -43,7 +46,9 @@ export function InvoicePage() {
         </button>
       </div>
 
-      {showPreview && <InvoicePreview invoice={invoice} />}
+      {showPreview && (
+        <InvoicePreview invoice={{ ...invoice, number: settings.nextNumber }} />
+      )}
     </div>
   );
 }
